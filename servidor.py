@@ -8,12 +8,14 @@ class Servidor():
 
 	def __init__(self, host=socket.gethostname(), port=int(input("Que puerto quiere usar ? "))):
 		self.clientes = []
+		self.nicknames = []
 		print('\nSu IP actual es : ',socket.gethostbyname(host))
 		print('\n\tProceso con PID = ',os.getpid(), '\n\tHilo PRINCIPAL con ID =',threading.currentThread().getName(), '\n\tHilo en modo DAEMON = ', threading.currentThread().isDaemon(), '\n\tTotal Hilos activos en este punto del programa =', threading.active_count())
 		self.s = socket.socket()
 		self.s.bind((str(host), int(port)))
 		self.s.listen(30)
 		self.s.setblocking(False)
+
 
 		threading.Thread(target=self.aceptarC, daemon=True).start()
 		threading.Thread(target=self.procesarC, daemon=True).start()
