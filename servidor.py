@@ -8,7 +8,6 @@ class Servidor():
 
 	def __init__(self, host=socket.gethostname(), port=int(input("Que puerto quiere usar ? "))):
 		self.clientes = []
-		self.nicknames = []
 		print('\nSu IP actual es : ',socket.gethostbyname(host))
 		print('\n\tProceso con PID = ',os.getpid(), '\n\tHilo PRINCIPAL con ID =',threading.currentThread().getName(), '\n\tHilo en modo DAEMON = ', threading.currentThread().isDaemon(), '\n\tTotal Hilos activos en este punto del programa =', threading.active_count())
 		self.s = socket.socket()
@@ -52,6 +51,13 @@ class Servidor():
 	def broadcast(self, msg, cliente):
 		for c in self.clientes:
 			print("Clientes conectados Right now = ", len(self.clientes))
+			print("Lista de Usuarios Conectados\n")
+			with open('uUsers22167749Al1.txt', 'r') as fichero:
+				linea = fichero.readline()
+				while linea != '':
+					print(linea, end='')
+					linea = fichero.readline()
+			print("\n")
 			try:
 				if c != cliente: 
 					print(pickle.loads(msg))

@@ -7,7 +7,7 @@ import os
 class Cliente():
 
 	def __init__(self, host=input("Intoduzca la IP del servidor ?  "), port=int(input("Intoduzca el PUERTO del servidor ?  ")), nick=input("Introduzca su Nickname ? ")):
-		f1 = open("nicknames.txt", "a")
+		f1 = open("uUsers22167749Al1.txt", "a")
 		f1.write(nick+"\n")
 		f1.close()
 		self.s = socket.socket()
@@ -19,12 +19,12 @@ class Cliente():
 			msg = input('\n'+nick+': Escriba texto ?   ** Enviar = ENTER   ** Salir Chat = 1 \n')
 			if msg != '1' : self.enviar(nick+": "+msg)
 			else:
-				os.remove("nicknames.txt")
+				os.remove("uUsers22167749Al1.txt")
 				print(" **** Me piro vampiro; cierro socket y mato al CLIENTE con PID = ", os.getpid())
 				self.s.close()
 				sys.exit()
                 
-			f = open("22167749.txt", "a", encoding='utf-8')
+			f = open("u22167749Al1.txt", "a", encoding='utf-8')
 			f.write(nick+" - "+msg+"\n"+"\n")
 			f.close()
             
