@@ -1,3 +1,3 @@
 # Tarea PCD Chat-Corona-V3
 Código modificado por DiegoK36 - 
-Repositorio original:https://github.com/sukuzhanay/chat_using_sockets
+Repositorio original: https://github.com/sukuzhanay/chat_using_sockets
